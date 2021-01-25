@@ -24,9 +24,9 @@ describe('Deck of Cards API', () => {
     });
 
     it('Should draw two random cards', async () => {
-        var Response = await chai.request(url).get(`/api/deck/${deckId}/draw/?count=2`);
-        console.log('First Card Drawn: ' + Response.body.cards[0].value + ' ' + Response.body.cards[0].suit);
-        console.log('Second Card Drawn: ' + Response.body.cards[1].value + ' ' + Response.body.cards[1].suit);
-        return expect(Response.body.remaining).to.equal(52);
+        var response = await chai.request(url).get(`/api/deck/${deckId}/draw/?count=2`);
+        console.log('First Card Drawn: ' + response.body.cards[0].value + ' ' + response.body.cards[0].suit);
+        console.log('Second Card Drawn: ' + response.body.cards[1].value + ' ' + response.body.cards[1].suit);
+        return expect(response.body.remaining).to.equal(52);
     });
 });
